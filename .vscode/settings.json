@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/123383eb-7aba-4117-81fb-270ca0f88039/microsoft.web/sites/subscriptions/123383eb-7aba-4117-81fb-270ca0f88039/resourceGroups/finance-rg/providers/Microsoft.Web/sites/finance-app-ui",
+    "appService.deploySubpath": "dist"
+}

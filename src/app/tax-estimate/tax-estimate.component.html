@@ -1,0 +1,18 @@
+<h2>Tax Estimate Calculator</h2>
+
+<div>
+  <label for="income">Income: </label>
+  <input id="income" #incomeValue [(ngModel)]="incomeAmount" />
+
+<!-- Tax Estimate Result -->
+  <div><span>Taxable Income: </span>{{result.taxableIncome}}</div>
+  <div><span>Total Tax: </span>{{result.totalTax}}</div>
+
+  <!-- (click) passes input value to calculateTaxEstimate() and then clears the input -->
+  <!--
+  <button type="button" class="add-button" (click)="calculateTaxEstimate(incomeValue.value); incomeValue.value=''">
+    Calculate
+  </button>
+  -->
+</div>
+
