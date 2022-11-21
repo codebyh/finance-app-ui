@@ -18,7 +18,7 @@ export class TaxEstimateComponent implements OnInit {
 
   calculateTaxEstimate(incomeAmountString: string): void {
     this.incomeAmount = parseInt(incomeAmountString);
-    this.result = this.taxEstimateService.getTaxEstimate(this.incomeAmount);
+    this.taxEstimateService.getTaxEstimate(this.incomeAmount).subscribe(result => this.result = result);
   }
 
 }
