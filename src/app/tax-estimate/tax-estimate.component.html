@@ -2,17 +2,15 @@
 
 <div>
   <label for="income">Income: </label>
-  <input id="income" #incomeValue [(ngModel)]="incomeAmount" />
+  <input id="incomeAmountId" #incomeAmountId [(ngModel)]="incomeAmount" />
 
-<!-- Tax Estimate Result -->
-  <div><span>Taxable Income: </span>{{result.taxableIncome}}</div>
-  <div><span>Total Tax: </span>{{result.totalTax}}</div>
-
-  <!-- (click) passes input value to calculateTaxEstimate() and then clears the input -->
-  <!--
-  <button type="button" class="add-button" (click)="calculateTaxEstimate(incomeValue.value); incomeValue.value=''">
+  <br>
+  <button type="button" class="add-button" (click)="calculateTaxEstimate(incomeAmountId.value)">
     Calculate
   </button>
-  -->
-</div>
 
+  <!-- Tax Estimate Result -->
+  <div><span>Taxable Income: </span>{{result.taxableIncome}}</div>
+  <div><span>Total Tax: </span>{{result.totalTaxAmount}}</div>
+
+</div>

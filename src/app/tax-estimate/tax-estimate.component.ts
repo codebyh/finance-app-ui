@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaxEstimateResult } from './data-models/tax-estimate-result';
+import { TaxEstimateService } from './tax-estimate.service';
 
 @Component({
   selector: 'app-tax-estimate',
@@ -7,23 +8,17 @@ import { TaxEstimateResult } from './data-models/tax-estimate-result';
   styleUrls: ['./tax-estimate.component.css']
 })
 export class TaxEstimateComponent implements OnInit {
-  result: TaxEstimateResult = {
-    taxableIncome: 100,
-    totalTax: 10
-  };
+  result: TaxEstimateResult = { } as TaxEstimateResult;
   incomeAmount: number = 0;
 
-  constructor() {  }
+  constructor(private taxEstimateService: TaxEstimateService) { }
 
   ngOnInit(): void {
   }
 
-  // calculateTaxEstimate(incomeAmount: number): void {
-  //   if (!incomeAmount) { return 'Income'; }
-  //   this.heroService.addHero({ name } as Hero)
-  //     .subscribe(hero => {
-  //       this.heroes.push(hero);
-  //     });
-  // }
+  calculateTaxEstimate(incomeAmountString: string): void {
+    this.incomeAmount = parseInt(incomeAmountString);
+    this.result = this.taxEstimateService.getTaxEstimate(this.incomeAmount);
+  }
 
 }
