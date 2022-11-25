@@ -13,7 +13,7 @@ import { TaxEstimateResult } from './data-models/tax-estimate-result';
   providedIn: 'root'
 })
 export class TaxEstimateService {
-  private taxEstimateUrl = 'finance-app.azurewebsites.net/TaxEstimate';
+  private taxEstimateUrl = 'https://finance-app.azurewebsites.net/TaxEstimate';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -27,7 +27,10 @@ export class TaxEstimateService {
     payload.Income = incomeAmount;
     payload.FilingStatus = 1;
 
-    const result = this.http.post<TaxEstimateResult>(this.taxEstimateUrl, payload, this.httpOptions)
+    const result = this.http.post<TaxEstimateResult>(
+      this.taxEstimateUrl,
+      payload,
+      this.httpOptions)
       .pipe(
         catchError(this.handleError<TaxEstimateResult>('getTaxEstimate', {} as TaxEstimateResult))
       );
